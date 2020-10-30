@@ -8,13 +8,13 @@ It also conforms to the `Collection` Protocol and also has all the relevant `sub
 
 ### Usage:
 
-**1. Normal Usage:**
+**1. Normal Dictionary Usage:**
 ```
 let dict = [String: A]()
 let value = dict["hello"]
 print(value)
 ```
-**2. ThreadSafe Usage**
+**2. ThreadSafeDictionary Usage**
 
 ```
 let dict = ThreadSafeDictionary<A>()
