@@ -1,9 +1,8 @@
 # Thread-Safe-Dictionary
 
 ## Why do we need this?
-Dictionaries in Swift are not thread safe , they lead to wierd crashes which are very hard to debug , this class solves this problem.
-This class contains a dictionary whose accesses are made thread safe by using a concurrent queue with barriers.
-It also conforms to the `Collection` Protocol and also has all the relevant `subscript` overrides which means you can use it just like a normal dictionary. 
+1. Dictionaries in Swift are not thread safe , they lead to wierd crashes which are very hard to debug.This class solves this problem by using a dictionary whose accesses are made thread safe by using a concurrent queue with a barrier.
+2. It also conforms to the `Collection` Protocol and also has all the relevant `subscript` overrides which means you can use it just like a normal dictionary. 
 
 
 ### Usage:
