@@ -34,3 +34,4 @@ dict.forEach { (key, value) in
 
 So just by a single line change , you can enjoy benefits of thread safety and a swift implementation of a dictionary.
 Guys this is being actively tested and used , will push commits if i face any issues , feel free to post issues if you find any.
+Feels good to be back after a while
