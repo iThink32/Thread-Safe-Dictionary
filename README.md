@@ -21,6 +21,8 @@ let dict = ThreadSafeDictionary<A>()
 let value = dict["hello"]
 print(value)
 ```
+where A is any custom class
+
 
 you can even do a for each like a normal dictionary
 
