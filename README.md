@@ -3,7 +3,7 @@
 ## Why do we need this?
 1. Dictionaries in Swift are not thread safe , they lead to wierd crashes which are very hard to debug.This class solves this problem by using a dictionary whose accesses are made thread safe by using a concurrent queue with a barrier.
 2. It also conforms to the `Collection` Protocol and also has all the relevant `subscript` overrides which means you can use it just like a normal dictionary. 
-3. The key now conforms to hashable so now ThreadSafeDictionary can be used with any key that conforms to the Hashable protocol.
+3. The key now conforms to `Hashable` so now `ThreadSafeDictionary` can be used with any key that conforms to the `Hashable` protocol.
 
 
 ### Usage:
