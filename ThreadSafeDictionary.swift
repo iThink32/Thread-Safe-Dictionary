@@ -52,6 +52,12 @@ class ThreadSafeDictionary<V: Hashable,T>: Collection {
             return self.dictionary[index]
         }
     }
+    
+    func removeValue(forKey key: V) {
+        self.concurrentQueue.async(flags: .barrier) {[weak self] in
+            self?.dictionary.removeValue(forKey: key)
+        }
+    }
 
     func removeAll() {
         self.concurrentQueue.async(flags: .barrier) {[weak self] in
