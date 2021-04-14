@@ -10,11 +10,15 @@ class ThreadSafeDictionary<V: Hashable,T>: Collection {
     private let concurrentQueue = DispatchQueue(label: "Dictionary Barrier Queue",
                                                 attributes: .concurrent)
     var startIndex: Dictionary<V, T>.Index {
-        return self.dictionary.startIndex
+        self.concurrentQueue.sync {
+            return self.dictionary.startIndex
+        }
     }
 
     var endIndex: Dictionary<V, T>.Index {
-        return self.dictionary.endIndex
+        self.concurrentQueue.sync {
+            return self.dictionary.endIndex
+        }
     }
 
     init(dict: [V: T] = [V:T]()) {
@@ -23,7 +27,9 @@ class ThreadSafeDictionary<V: Hashable,T>: Collection {
     // this is because it is an apple protocol method
     // swiftlint:disable identifier_name
     func index(after i: Dictionary<V, T>.Index) -> Dictionary<V, T>.Index {
-        return self.dictionary.index(after: i)
+        self.concurrentQueue.sync {
+            return self.dictionary.index(after: i)
+        }
     }
     // swiftlint:enable identifier_name
 
