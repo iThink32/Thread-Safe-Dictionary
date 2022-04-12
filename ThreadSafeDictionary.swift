@@ -9,6 +9,19 @@ class ThreadSafeDictionary<V: Hashable,T>: Collection {
     private var dictionary: [V: T]
     private let concurrentQueue = DispatchQueue(label: "Dictionary Barrier Queue",
                                                 attributes: .concurrent)
+
+    var keys: Dictionary<V, T>.Keys {
+        self.concurrentQueue.sync {
+            return self.dictionary.keys
+        }
+    }
+
+    var values: Dictionary<V, T>.Values {
+        self.concurrentQueue.sync {
+            return self.dictionary.values
+        }
+    }
+
     var startIndex: Dictionary<V, T>.Index {
         self.concurrentQueue.sync {
             return self.dictionary.startIndex
